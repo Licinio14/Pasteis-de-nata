@@ -1,5 +1,5 @@
 package Enums;
 
 public enum TipoHeroi {
-    PROGRAMADOR,MILITAR,FUGITIVO;
+    PROGRAMADOR,MILITAR,FUGITIVO,TODOS;
 }
