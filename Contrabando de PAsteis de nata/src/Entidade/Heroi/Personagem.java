@@ -54,7 +54,7 @@ public class Personagem extends Entidade {
     }
 
     public void ExibirDetalhes(){
-        System.out.println("\nNome: " + super.nome + "\tVida Maxima: " + super.vidaMaxima + "\tForça: " + super.forca + "\tDefesa: " + super.defesa + "\tLvl: " + this.lvl + "\tGold: " + this.gold + "\n");
+        System.out.println("\n|Nome: " + super.nome + "|\t|❤\uFE0F" + super.vidaMaxima + "❤\uFE0F|\t|\uD83D\uDCAA" + super.forca + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + super.defesa + "\uD83D\uDEE1\uFE0F|\t|\uD83C\uDF96" + this.lvl + "\uD83C\uDF96|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|\n");
         this.arma.ExibirDetalhes();
         ExibirInventario();
     }

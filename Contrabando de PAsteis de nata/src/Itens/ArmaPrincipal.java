@@ -84,7 +84,7 @@ public final  class ArmaPrincipal extends ItensHeroi{
     public void ExibirDetalhes() {
 
         System.out.printf("⚔\uFE0F" + super.getNome() + "⚔\uFE0F" + "|\uD83D\uDDE1\uFE0F " + this.Ataque + " \uD83D\uDDE1\uFE0F|" + "|\uD83D\uDCA5 " + this.EspecialDano + "\uD83D\uDCA5|" +"|\uD83D\uDEE1\uFE0F " + this.DefesaDano + "\uD83D\uDEE1\uFE0F|");
-        System.out.printf("\n\uD83C\uDFAB " + this.Especial + " \uD83C\uDFAB" + "\t \uD83E\uDE99" + super.preco + "\uD83E\uDE99");
+        System.out.printf("\n\uD83C\uDF87" + this.Especial + "\uD83C\uDF87" + "\t \uD83E\uDE99" + super.preco + "\uD83E\uDE99");
         super.getTiposHeroiAceites();
 
     }

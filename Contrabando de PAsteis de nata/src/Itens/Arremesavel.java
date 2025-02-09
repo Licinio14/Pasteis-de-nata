@@ -43,7 +43,7 @@ public final class Arremesavel extends Consumivel{
      */
     @Override
     public void ExibirDetalhes() {
-        System.out.printf("|⚔\uFE0F " + super.nome + " ⚔\uFE0F|" + "|\uD83D\uDDE1\uFE0F " + this.dano + " \uD83D\uDDE1\uFE0F|" + "|\uD83E\uDE99" + super.preco + "\uD83E\uDE99|");
+        System.out.printf("|\uD83E\uDE83 " + super.nome + " \uD83E\uDE83|" + "|\uD83D\uDDE1\uFE0F " + this.dano + " \uD83D\uDDE1\uFE0F|" + "|\uD83E\uDE99" + super.preco + "\uD83E\uDE99|");
         System.out.printf("\n\uD83E\uDE84 " + this.descricao + " \uD83E\uDE84\n");
     }
 }
