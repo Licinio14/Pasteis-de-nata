@@ -1,5 +1,6 @@
 package Loja;
 
+import Entidade.Heroi.Personagem;
 import Enums.TipoHeroi;
 import Itens.CriacoesItens.CriacaoArremesaveis;
 import Itens.CriacoesItens.CriarArmasPrincipais;
@@ -12,14 +13,13 @@ public class CriarMercado {
 
         //armas principais
         continente.adicionarStock(CriarArmasPrincipais.faca);
-        continente.adicionarStock(CriarArmasPrincipais.Pistola);
-        continente.adicionarStock(CriarArmasPrincipais.Metrelhadora);
-        continente.adicionarStock(CriarArmasPrincipais.Sniper);
+        continente.adicionarStock(CriarArmasPrincipais.pistola);
+        continente.adicionarStock(CriarArmasPrincipais.metrelhadora);
+        continente.adicionarStock(CriarArmasPrincipais.sniper);
         continente.adicionarStock(CriarArmasPrincipais.ram8);
         continente.adicionarStock(CriarArmasPrincipais.ram32);
         continente.adicionarStock(CriarArmasPrincipais.colher);
         continente.adicionarStock(CriarArmasPrincipais.escada);
-        continente.adicionarStock(CriarArmasPrincipais.error);
 
         //armas arremesaveis
         continente.adicionarStock(CriacaoArremesaveis.pedra);
@@ -47,6 +47,17 @@ public class CriarMercado {
 
     public static void AdicionarTiposNasArmas(){
         CriarArmasPrincipais.faca.AdicionaTipoHeroi(TipoHeroi.TODOS);
+        CriarArmasPrincipais.pistola.AdicionaTipoHeroi(TipoHeroi.TODOS);
+        CriarArmasPrincipais.metrelhadora.AdicionaTipoHeroi(TipoHeroi.MILITAR);
+        CriarArmasPrincipais.metrelhadora.AdicionaTipoHeroi(TipoHeroi.FUGITIVO);
+        CriarArmasPrincipais.sniper.AdicionaTipoHeroi(TipoHeroi.MILITAR);
+        CriarArmasPrincipais.ram8.AdicionaTipoHeroi(TipoHeroi.PROGRAMADOR);
+        CriarArmasPrincipais.ram32.AdicionaTipoHeroi(TipoHeroi.PROGRAMADOR);
+        CriarArmasPrincipais.colher.AdicionaTipoHeroi(TipoHeroi.PROGRAMADOR);
+        CriarArmasPrincipais.colher.AdicionaTipoHeroi(TipoHeroi.FUGITIVO);
+        CriarArmasPrincipais.escada.AdicionaTipoHeroi(TipoHeroi.FUGITIVO);
+        CriarArmasPrincipais.error.AdicionaTipoHeroi(TipoHeroi.TODOS);
+        CriarArmasPrincipais.maos.AdicionaTipoHeroi(TipoHeroi.TODOS);
     }
 
 }

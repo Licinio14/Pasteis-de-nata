@@ -4,14 +4,14 @@ public abstract class Entidade {
     protected String nome;
     protected int vidaMaxima;
     protected int vidaAtual;
-    protected int Força;
+    protected int forca;
     protected int defesa;
 
-    public Entidade(String nome, int vidaMaxima, int vidaAtual, int força, int defesa) {
+    public Entidade(String nome, int vidaMaxima, int vidaAtual, int forca, int defesa) {
         this.nome = nome;
         this.vidaMaxima = vidaMaxima;
         this.vidaAtual = vidaAtual;
-        Força = força;
+        this.forca = forca;
         this.defesa = defesa;
     }
 
