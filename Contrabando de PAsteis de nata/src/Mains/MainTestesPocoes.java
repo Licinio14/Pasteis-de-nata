@@ -1,5 +1,6 @@
 package Mains;
 
+import Entidade.Heroi.ClassHeroi.Militar;
 import Entidade.Heroi.Personagem;
 import Enums.TipoConsumivel;
 import Enums.TipoHeroi;
@@ -19,13 +20,17 @@ public class MainTestesPocoes {
 
         //continente.Vender();
 
-        Personagem player = new Personagem("Licinio",1000,1000,50,0,1,100);
+        Personagem player = new Militar("Licinio",1000,50,0,100);
 
-        player.AddInventario(CriarPocoes.defesaG);
-        player.AddInventario(CriacaoArremesaveis.pipocas);
+        player.AddInventario(CriarPocoes.vidaG);
 
         player.ExibirDetalhes();
 
+        System.out.println("vai usar a poção de vida");
+
+        player.usarPocao(CriarPocoes.vidaG);
+
+        player.ExibirDetalhes();
 
 
     }

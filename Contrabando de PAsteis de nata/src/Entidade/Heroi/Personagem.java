@@ -9,7 +9,7 @@ import Itens.Pocao;
 
 import java.util.ArrayList;
 
-public class Personagem extends Entidade {
+public abstract class Personagem extends Entidade {
     protected int lvl;
     protected int gold;
     protected ArmaPrincipal arma;
@@ -19,14 +19,13 @@ public class Personagem extends Entidade {
      * Cria o heroi com quem o utilizador vai jogar
      * @param nome Nome do Heroi (string)
      * @param vidaMaxima Vida maxima com que o heroi vai começar (int)
-     * @param vidaAtual
      * @param forca
      * @param defesa
      * @param lvl
      * @param gold
      */
-    public Personagem(String nome, int vidaMaxima, int vidaAtual, int forca, int defesa, int lvl, int gold) {
-        super(nome, vidaMaxima, vidaAtual, forca, defesa);
+    public Personagem(String nome, int vidaMaxima, int forca, int defesa, int lvl, int gold) {
+        super(nome, vidaMaxima, forca, defesa);
         this.lvl = lvl;
         this.gold = gold;
         this.arma = CriarArmasPrincipais.maos;
@@ -54,7 +53,7 @@ public class Personagem extends Entidade {
     }
 
     public void ExibirDetalhes(){
-        System.out.println("\n|Nome: " + super.nome + "|\t|❤\uFE0F" + super.vidaMaxima + "❤\uFE0F|\t|\uD83D\uDCAA" + super.forca + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + super.defesa + "\uD83D\uDEE1\uFE0F|\t|\uD83C\uDF96" + this.lvl + "\uD83C\uDF96|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|\n");
+        System.out.println("\n|Nome: " + super.nome + "|\t|❤\uFE0F" + super.vidaAtual + "❤\uFE0F|\t|\uD83D\uDCAA" + super.forca + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + super.defesa + "\uD83D\uDEE1\uFE0F|\t|\uD83C\uDF96" + this.lvl + "\uD83C\uDF96|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|\n");
         this.arma.ExibirDetalhes();
         ExibirInventario();
     }
@@ -67,4 +66,6 @@ public class Personagem extends Entidade {
             System.out.println();
         }
     }
+
+    public abstract void Atacar();
 }

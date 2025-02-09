@@ -9,8 +9,8 @@ public class Inimigo extends Entidade {
     protected int gold;
     protected int pocao;
 
-    public Inimigo(String nome, int vidaMaxima, int vidaAtual, int forca, int defesa, int gold) {
-        super(nome, vidaMaxima, vidaAtual, forca, defesa);
+    public Inimigo(String nome, int vidaMaxima, int forca, int defesa, int gold) {
+        super(nome, vidaMaxima, forca, defesa);
         this.gold = gold;
         this.pocao = rd.nextInt(3);
     }
