@@ -7,18 +7,73 @@ public abstract class Entidade {
     protected int vidaMaxima;
     protected int vidaAtual;
     protected int forca;
+    protected int bufForca = 0;
     protected int defesa;
+    protected int bufDefesa = 0;
 
     public Entidade(String nome, int vidaMaxima, int forca, int defesa) {
         this.nome = nome;
         this.vidaMaxima = vidaMaxima;
-        this.vidaAtual = 500; //vidaMaxima;
+        this.vidaAtual = 100; //vidaMaxima;
         this.forca = forca;
         this.defesa = defesa;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public int getVidaMaxima() {
+        return vidaMaxima;
+    }
+
+    public int getVidaAtual() {
+        return vidaAtual;
+    }
+
+    public int getForca() {
+        return forca;
+    }
+
+    public int getDefesa() {
+        return defesa;
+    }
+
+    public int getBufForca() {
+        return bufForca;
+    }
+
+    public int getBufDefesa() {
+        return bufDefesa;
+    }
+
+    public void setVidaMaxima(int vidaMaxima) {
+        this.vidaMaxima = vidaMaxima;
+    }
+
+    public void setVidaAtual(int vidaAtual) {
+        this.vidaAtual = vidaAtual;
+    }
+
+    public void setForca(int forca) {
+        this.forca = forca;
+    }
+
+    public void setDefesa(int defesa) {
+        this.defesa = defesa;
+    }
+
+    public void setBufForca(int bufForca) {
+        this.bufForca = bufForca;
+    }
+
+    public void setBufDefesa(int bufDefesa) {
+        this.bufDefesa = bufDefesa;
+    }
+
     public abstract void ExibirDetalhes();
 
+    //provavelmente vou ter de mudar
     public void usarPocao(Pocao pocao) {
         if (this.vidaAtual + pocao.getVida() >= this.vidaMaxima) {
             this.vidaAtual = this.vidaMaxima;
@@ -31,4 +86,6 @@ public abstract class Entidade {
         this.vidaAtual -= pocao.getDano();
 
     }
+
+    public abstract void MostrarStatus();
 }

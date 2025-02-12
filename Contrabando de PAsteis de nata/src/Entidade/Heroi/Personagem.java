@@ -1,11 +1,11 @@
 package Entidade.Heroi;
 
 import Entidade.Entidade;
-import Enums.TipoHeroi;
+import Entidade.NPC.Inimigo;
 import Itens.ArmaPrincipal;
 import Itens.CriacoesItens.CriarArmasPrincipais;
 import Itens.ItensHeroi;
-import Itens.Pocao;
+import Tools.Tools;
 
 import java.util.ArrayList;
 
@@ -44,6 +44,18 @@ public abstract class Personagem extends Entidade {
         return arma;
     }
 
+    public void setLvl(int lvl) {
+        this.lvl = lvl;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+
+    public void setArma(ArmaPrincipal arma) {
+        this.arma = arma;
+    }
+
     public void AddInventario(ItensHeroi hero) {
         inventario.add(hero);
     }
@@ -67,5 +79,41 @@ public abstract class Personagem extends Entidade {
         }
     }
 
-    public abstract void Atacar();
+    public abstract boolean Atacar(Inimigo inimigo);
+
+    //public abstract void MostrarStatus();
+
+    @Override
+    public void MostrarStatus() {
+        String cor;
+        if (super.vidaAtual < 300){
+            cor = Tools.ConsoleColors.RED_BOLD;
+        }else if (super.vidaAtual > 300 && super.vidaAtual < 600){
+            cor = Tools.ConsoleColors.PURPLE_BOLD;
+        }else if (super.vidaAtual > 600 && super.vidaAtual < 900){
+            cor = Tools.ConsoleColors.YELLOW_BOLD;
+        }else {
+            cor = Tools.ConsoleColors.GREEN_BOLD;
+        }
+
+        System.out.print(cor + "|Nome: " + super.nome + "|\t" + Tools.ConsoleColors.BLUE_BOLD + "|❤\uFE0F" + super.vidaAtual + "❤\uFE0F|\t|\uD83D\uDCAA" + super.forca + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + super.defesa + "\uD83D\uDEE1\uFE0F|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|" + Tools.ConsoleColors.RESET);
+    }
+
+    public void MostrarVida() {
+        String cor;
+        int count = 0;
+        if (super.vidaAtual < 300){
+            cor = Tools.ConsoleColors.RED_BACKGROUND_BRIGHT;
+        }else if (super.vidaAtual > 300 && super.vidaAtual < 600){
+            cor = Tools.ConsoleColors.PURPLE_BACKGROUND_BRIGHT;
+        }else if (super.vidaAtual > 600 && super.vidaAtual < 900){
+            cor = Tools.ConsoleColors.YELLOW_BACKGROUND_BRIGHT;
+        }else {
+            cor = Tools.ConsoleColors.GREEN_BACKGROUND_BRIGHT;
+        }
+
+        for (int i = 0; i < 61; i++) {
+            System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+        }
+    }
 }

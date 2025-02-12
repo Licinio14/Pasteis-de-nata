@@ -1,6 +1,6 @@
 package Loja;
 
-import Entidade.Heroi.Personagem;
+
 import Enums.TipoHeroi;
 import Itens.CriacoesItens.CriacaoArremesaveis;
 import Itens.CriacoesItens.CriarArmasPrincipais;
