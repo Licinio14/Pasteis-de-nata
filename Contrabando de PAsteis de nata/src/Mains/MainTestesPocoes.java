@@ -28,8 +28,10 @@ public class MainTestesPocoes {
         Inimigo teste = new Inimigo("Bomba",1000,75,0,88);
 
         player.setArma(CriarArmasPrincipais.error);
-
+        player.setArma(CriarArmasPrincipais.pistola);
         player.Atacar(teste);
+
+
 
         System.out.println("fim");
 

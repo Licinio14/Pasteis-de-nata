@@ -101,19 +101,52 @@ public abstract class Personagem extends Entidade {
 
     public void MostrarVida() {
         String cor;
-        int count = 0;
+        int count = 0, quantidade = 0;
         if (super.vidaAtual < 300){
             cor = Tools.ConsoleColors.RED_BACKGROUND_BRIGHT;
-        }else if (super.vidaAtual > 300 && super.vidaAtual < 600){
+            quantidade = 1;
+        }else if (super.vidaAtual >= 300 && super.vidaAtual < 600){
             cor = Tools.ConsoleColors.PURPLE_BACKGROUND_BRIGHT;
-        }else if (super.vidaAtual > 600 && super.vidaAtual < 900){
+            quantidade = 2;
+        }else if (super.vidaAtual >= 600 && super.vidaAtual < 900){
             cor = Tools.ConsoleColors.YELLOW_BACKGROUND_BRIGHT;
+            quantidade = 3;
         }else {
             cor = Tools.ConsoleColors.GREEN_BACKGROUND_BRIGHT;
+            quantidade = 4;
         }
 
-        for (int i = 0; i < 61; i++) {
-            System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+        for (int i = 0; i < 60; i++) {
+
+            switch (quantidade){
+                case 1:
+                    if (i<15){
+                        System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    }else {
+                        System.out.print(" ");
+                    }
+                    break;
+                case 2:
+                    if (i<30){
+                        System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    }else {
+                        System.out.print(" ");
+                    }
+                    break;
+                case 3:
+                    if (i<45){
+                        System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    }else {
+                        System.out.print(" ");
+                    }
+                    break;
+                case 4:
+                    System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    break;
+                default:
+                    System.out.println(Tools.ConsoleColors.RED + "ERRO AO EXIBIR A BARRA DE VIDA");
+            }
+
         }
     }
 }

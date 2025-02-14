@@ -14,7 +14,7 @@ public abstract class Entidade {
     public Entidade(String nome, int vidaMaxima, int forca, int defesa) {
         this.nome = nome;
         this.vidaMaxima = vidaMaxima;
-        this.vidaAtual = 100; //vidaMaxima;
+        this.vidaAtual = vidaMaxima;
         this.forca = forca;
         this.defesa = defesa;
     }

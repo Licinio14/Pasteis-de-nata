@@ -1,5 +1,7 @@
 package Itens;
 
+import Entidade.Heroi.Personagem;
+import Entidade.NPC.Inimigo;
 import Enums.TipoConsumivel;
 import Enums.TipoHeroi;
 
@@ -75,6 +77,13 @@ public final class Pocao extends Consumivel {
     }
 
     /**
+     * Diminui em 1, a quantidade de turnos disponivel na poçao
+     */
+    public void setTurnos() {
+        this.turnos = this.turnos - 1;
+    }
+
+    /**
      * Retorna a descrição da poção
      * @return (string)
      */
@@ -82,8 +91,33 @@ public final class Pocao extends Consumivel {
         return descricao;
     }
 
+    /**
+     * Da print de todos os detalhes das poções
+     */
     public void ExibirDetalhes(){
         System.out.printf("|⚗\uFE0F " + super.nome + " ⚗\uFE0F|" + "|❤\uFE0F\u200D\uD83E\uDE79 " + this.vida + " ❤\uFE0F\u200D\uD83E\uDE79|" + "|\uD83D\uDCAA " + this.ataque + " \uD83D\uDCAA|" + "|\uD83D\uDEE1\uFE0F" + this.defesa + " \uD83D\uDEE1\uFE0F|" + "|\uD83D\uDC94 " + this.dano + " \uD83D\uDC94|" + "|♻\uFE0F " + this.turnos + " ♻\uFE0F|" + "|\uD83E\uDE99" + super.preco + "\uD83E\uDE99|");
         System.out.printf("\n\uD83E\uDE84 " + this.descricao + " \uD83E\uDE84\n");
+    }
+
+    /**
+     * Recebe o player para que seja adicionado os efeitos da poção
+     * @param objeto Player em jogo (Personagem)
+     */
+    public void UsarPocao(Personagem objeto){
+        objeto.setVidaAtual(objeto.getVidaAtual()+this.vida);
+        objeto.setBufForca(objeto.getBufForca() + this.ataque);
+        objeto.setBufDefesa(objeto.getDefesa() + this.defesa);
+        objeto.setVidaAtual(objeto.getVidaAtual() - this.dano);
+    }
+
+    /**
+     * Recebe o inimigo, para que receba os efeitos da poção usada
+     * @param objeto Inimigo em questão (Inimigo)
+     */
+    public void UsarPocao(Inimigo objeto){
+        objeto.setVidaAtual(objeto.getVidaAtual()+this.vida);
+        objeto.setBufForca(objeto.getBufForca() + this.ataque);
+        objeto.setBufDefesa(objeto.getDefesa() + this.defesa);
+        objeto.setVidaAtual(objeto.getVidaAtual() - this.dano);
     }
 }

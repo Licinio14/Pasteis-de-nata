@@ -24,6 +24,13 @@ public class Inimigo extends Entidade {
         return pocao;
     }
 
+    /**
+     * Diminui de 1 a quantidade de poções do inimigo sempre que for chamada
+     */
+    public void setPocao() {
+        this.pocao = this.pocao - 1;
+    }
+
     @Override
     public void ExibirDetalhes() {
         System.out.println("\n|Nome: " + super.nome + "|\t|❤\uFE0F" + super.vidaMaxima + "❤\uFE0F|\t|\uD83D\uDCAA" + super.forca + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + super.defesa + "\uD83D\uDEE1\uFE0F|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|\n");
@@ -47,20 +54,52 @@ public class Inimigo extends Entidade {
 
     public void MostrarVida() {
         String cor;
-        int count = 0;
+        int count = 0, quantidade = 0;
         if (super.vidaAtual < 300){
             cor = Tools.ConsoleColors.RED_BACKGROUND_BRIGHT;
-        }else if (super.vidaAtual > 300 && super.vidaAtual < 600){
+            quantidade = 1;
+        }else if (super.vidaAtual >= 300 && super.vidaAtual < 600){
             cor = Tools.ConsoleColors.PURPLE_BACKGROUND_BRIGHT;
-        }else if (super.vidaAtual > 600 && super.vidaAtual < 900){
+            quantidade = 2;
+        }else if (super.vidaAtual >= 600 && super.vidaAtual < 900){
             cor = Tools.ConsoleColors.YELLOW_BACKGROUND_BRIGHT;
+            quantidade = 3;
         }else {
             cor = Tools.ConsoleColors.GREEN_BACKGROUND_BRIGHT;
+            quantidade = 4;
         }
 
         for (int i = 0; i < 60; i++) {
-            //preciso fazer com que divida em setores e apenas mostrar a vermelho o necessario
-            System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+
+            switch (quantidade){
+                case 1:
+                    if (i<15){
+                        System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    }else {
+                        System.out.print(" ");
+                    }
+                    break;
+                case 2:
+                    if (i<30){
+                        System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    }else {
+                        System.out.print(" ");
+                    }
+                    break;
+                case 3:
+                    if (i<45){
+                        System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    }else {
+                        System.out.print(" ");
+                    }
+                    break;
+                case 4:
+                        System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    break;
+                default:
+                    System.out.println(Tools.ConsoleColors.RED + "ERRO AO EXIBIR A BARRA DE VIDA");
+            }
+
         }
     }
 
