@@ -71,9 +71,20 @@ public class Tools {
 
     }
 
+    /**
+     * Função para limpar a consola, escreve 200 linhas em branco
+     */
     public static void Clear() {
         for (int i = 0; i < 200; i++) {
             System.out.println();
         }
+    }
+
+    /**
+     * Função para "parar" o tempo do jogo
+     * @param tempo quantidade de milisegundos (int)
+     */
+    public static void Pause(int tempo) throws InterruptedException {
+        Thread.sleep(tempo);
     }
 }

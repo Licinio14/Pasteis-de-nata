@@ -60,8 +60,8 @@ public abstract class Personagem extends Entidade {
         inventario.add(hero);
     }
 
-    public void RmvInventario(int index) {
-        inventario.remove(index);
+    public void RmvInventario(ItensHeroi item) {
+        inventario.remove(item);
     }
 
     public void ExibirDetalhes(){
@@ -81,7 +81,6 @@ public abstract class Personagem extends Entidade {
 
     public abstract boolean Atacar(Inimigo inimigo);
 
-    //public abstract void MostrarStatus();
 
     @Override
     public void MostrarStatus() {
@@ -101,8 +100,11 @@ public abstract class Personagem extends Entidade {
 
     public void MostrarVida() {
         String cor;
-        int count = 0, quantidade = 0;
-        if (super.vidaAtual < 300){
+        int count = 0, quantidade;
+        if (super.vidaAtual < 100){
+            cor = Tools.ConsoleColors.RED_BACKGROUND_BRIGHT;
+            quantidade = 0;
+        }else if (super.vidaAtual < 300){
             cor = Tools.ConsoleColors.RED_BACKGROUND_BRIGHT;
             quantidade = 1;
         }else if (super.vidaAtual >= 300 && super.vidaAtual < 600){
@@ -119,6 +121,13 @@ public abstract class Personagem extends Entidade {
         for (int i = 0; i < 60; i++) {
 
             switch (quantidade){
+                case 0:
+                    if (i<5){
+                        System.out.print(cor + " " + Tools.ConsoleColors.RESET);
+                    }else {
+                        System.out.print(" ");
+                    }
+                    break;
                 case 1:
                     if (i<15){
                         System.out.print(cor + " " + Tools.ConsoleColors.RESET);

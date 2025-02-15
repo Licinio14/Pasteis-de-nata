@@ -88,4 +88,9 @@ public abstract class Entidade {
     }
 
     public abstract void MostrarStatus();
+
+    public void BufReset(){
+        this.bufDefesa = 0;
+        this.bufForca = 0;
+    }
 }

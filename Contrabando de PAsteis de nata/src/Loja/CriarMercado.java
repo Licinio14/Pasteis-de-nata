@@ -9,40 +9,40 @@ import Itens.CriacoesItens.CriarPocoes;
 public class CriarMercado {
 
     public static Mercado getMercadoCriado(){
-        Mercado continente = new Mercado();
+        Mercado lojaDos300 = new Mercado();
 
         //armas principais
-        continente.adicionarStock(CriarArmasPrincipais.faca);
-        continente.adicionarStock(CriarArmasPrincipais.pistola);
-        continente.adicionarStock(CriarArmasPrincipais.metrelhadora);
-        continente.adicionarStock(CriarArmasPrincipais.sniper);
-        continente.adicionarStock(CriarArmasPrincipais.ram8);
-        continente.adicionarStock(CriarArmasPrincipais.ram32);
-        continente.adicionarStock(CriarArmasPrincipais.colher);
-        continente.adicionarStock(CriarArmasPrincipais.escada);
+        lojaDos300.adicionarStock(CriarArmasPrincipais.faca);
+        lojaDos300.adicionarStock(CriarArmasPrincipais.pistola);
+        lojaDos300.adicionarStock(CriarArmasPrincipais.metrelhadora);
+        lojaDos300.adicionarStock(CriarArmasPrincipais.sniper);
+        lojaDos300.adicionarStock(CriarArmasPrincipais.ram8);
+        lojaDos300.adicionarStock(CriarArmasPrincipais.ram32);
+        lojaDos300.adicionarStock(CriarArmasPrincipais.colher);
+        lojaDos300.adicionarStock(CriarArmasPrincipais.escada);
 
         //armas arremesaveis
-        continente.adicionarStock(CriacaoArremesaveis.pedra);
-        continente.adicionarStock(CriacaoArremesaveis.facaA);
-        continente.adicionarStock(CriacaoArremesaveis.bugs);
-        continente.adicionarStock(CriacaoArremesaveis.escadaA);
-        continente.adicionarStock(CriacaoArremesaveis.granada);
-        continente.adicionarStock(CriacaoArremesaveis.pipocas);
-        continente.adicionarStock(CriacaoArremesaveis.carabela);
+        lojaDos300.adicionarStock(CriacaoArremesaveis.pedra);
+        lojaDos300.adicionarStock(CriacaoArremesaveis.facaA);
+        lojaDos300.adicionarStock(CriacaoArremesaveis.bugs);
+        lojaDos300.adicionarStock(CriacaoArremesaveis.escadaA);
+        lojaDos300.adicionarStock(CriacaoArremesaveis.granada);
+        //lojaDos300.adicionarStock(CriacaoArremesaveis.pipocas);
+        lojaDos300.adicionarStock(CriacaoArremesaveis.carabela);
 
         //poções
-        continente.adicionarStock(CriarPocoes.vidaP);
-        continente.adicionarStock(CriarPocoes.vidaM);
-        continente.adicionarStock(CriarPocoes.vidaG);
-        continente.adicionarStock(CriarPocoes.forcaP);
-        continente.adicionarStock(CriarPocoes.forcaG);
-        continente.adicionarStock(CriarPocoes.defesaP);
-        continente.adicionarStock(CriarPocoes.defesaG);
-        continente.adicionarStock(CriarPocoes.fogo);
-        continente.adicionarStock(CriarPocoes.veneno);
-        continente.adicionarStock(CriarPocoes.smoke);
+        lojaDos300.adicionarStock(CriarPocoes.vidaP);
+        lojaDos300.adicionarStock(CriarPocoes.vidaM);
+        lojaDos300.adicionarStock(CriarPocoes.vidaG);
+        lojaDos300.adicionarStock(CriarPocoes.forcaP);
+        lojaDos300.adicionarStock(CriarPocoes.forcaG);
+        lojaDos300.adicionarStock(CriarPocoes.defesaP);
+        lojaDos300.adicionarStock(CriarPocoes.defesaG);
+        //lojaDos300.adicionarStock(CriarPocoes.fogo);
+        //lojaDos300.adicionarStock(CriarPocoes.veneno);
+        //lojaDos300.adicionarStock(CriarPocoes.smoke);
 
-        return continente;
+        return lojaDos300;
     }
 
     public static void AdicionarTiposNasArmas(){

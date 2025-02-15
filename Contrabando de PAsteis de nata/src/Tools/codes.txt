@@ -1,0 +1,18 @@
+Criar herois
+
+        Fugitivo player = TiposHerois.CriarFugitivo("lince",100,10);
+        Militar player = TiposHerois.CriarMilitar("lince",100,10);
+        Programador player = TiposHerois.CriarProgramador("lince",100,10);
+
+Chamar poçoes/arremesaveis/armas
+
+        CriarPocoes.vidaG
+        CriacaoArremesaveis.bugs
+        CriarArmasPrincipais.sniper
+
+
+Criar Mercado
+
+        Mercado lojaDos300 = CriarMercado.getMercadoCriado();
+
+        CriarMercado.AdicionarTiposNasArmas();

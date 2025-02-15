@@ -47,6 +47,10 @@ public abstract class ItensHeroi {
         System.out.println();
     }
 
+    public boolean PodeUsar(TipoHeroi tipo){
+        return tiposHeroiAceites.contains(tipo);
+    }
+
     /**
      * Adiciona os tipos de herois que podem usar o item
      * @param tipoHeroi Enum TipoHeroi
