@@ -153,8 +153,6 @@ public class Fugitivo extends Personagem {
         } while (true);
 
         if (this.getVidaAtual() == 0) {
-            System.out.println(Tools.ConsoleColors.RED + "GAME OVER");
-            System.out.println("Boa sorte para a proxima" + Tools.ConsoleColors.RESET);
             this.BufReset();
             return false;
         } else {

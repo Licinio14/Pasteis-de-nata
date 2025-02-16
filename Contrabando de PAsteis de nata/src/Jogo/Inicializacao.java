@@ -8,6 +8,59 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Inicializacao {
+    public static void InicioHistoria(){
+        Scanner in = new Scanner(System.in);
+        System.out.println(Tools.ConsoleColors.BLUE_BOLD_BRIGHT);
+
+        System.out.println("""
+                                                          ▒▒▒▒▒▒▒░░▒▒▒▒░                                           
+                                                  ▒▒▓▓▓▒▒▒▒▒▒░░░░░░▒▒▒░░░░▒▒▒▒▒▒                                   
+                                            ▒▒▓▓▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒░                               
+                                       ▒▒▒▒▒▒▒▒▒▒▒░▒▒▒▒░░░░░░▒▒▒░░░░░░░░▒▒░░░░░░░▒░░▒░░                            
+                                     ▒▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▓▒▒▒▒▒░░░░░░░░░░░░                         
+                                   ░▒▒▒▒▒▒░░░░▒░▒▒▒▒░░░░▒▒▓▓▓▓▓███▓▓▓▒▓▓▓▓▒▒▒▒▒▒▒▒░░░░░░░░░░                       
+                                  ░░▒░▒░░░░▒▒▒▒▒▒░░░░░░▒▒▒▒▓▓▓█████▓▓▓▒▓▓▓▓▒▓▓▓▒▒▒▒▒▒░░░░░░▒▒░                     
+                                 ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░▒▒▒▓▓███▓▓█████▓▓█▓▒▓▓█▓▒▓▓▓▓▒▒░░░░░░░▒▒▒                    
+                                ▒▒▒▒░░░░░░▒▒▒▒▒▓▓▒▒▒▒▒▒▒▓▓▓▓█████▓▓█▓▓▒▓▓▓▓███▓▓▓▓▓▒▒░░░░░░▒▒▒▒▓                   
+                                ▒▒▒▒▒░░░░░▒░▒▒▒▓▓▓▒▓▓▓▓▓▓▓▓▓▓▓▓▓███████▒░▓██▓▓▓▓▓▓▒▒▒▒░░░░░▒▒▒▒▓▓                  
+                                ▒▒▒░▒░░░░░░▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓██▓▓▓███▓███▓▓▓███▓████▓▓▒▒░░░▒░▒▒▒▓▓▒                  
+                                ▒▒▒░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓████▓▓████████████████▒▒▒▒▒░░░▒▒▒▒▒▓▓▒                  
+                                ▒▒▒▒▒░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▓▓█▓████▓▓▓▓███████▓███▓▓▒▒▒░░░▒▒▒▒▓▓▓▓▒                   
+                                 ░▒▒▒▒▒░░░░░░░░░▒▒▒░░▒▒▓███▓▓██▓████▓████████▓▒▒▒▒▒░░░▒▒▒▒▒▓▓▓▓                    
+                                  ▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▒▒▓▓▓▓▓█████▓▓███▓▓▓▒▒░░░▒▒▒▒░▒▒▒▒▒▓▓▓▓▓▒                     
+                                    ░▒▒▒▒▒▒░░░░░░░▒▒▒▒▒▒▒▓▓▓▓▓▓▒▒▒▒▒░░░░░░░░░▒▒▒▒▒▒▒▒▓▓▓▓▓▓▒▒                      
+                                     ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░▒▒░▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▒▒                        
+                                       ░░░▒▒▒▓▓▓▓▓▓▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▒▒▒                          
+                                         ░░░░░▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒▒▒▒░░                            
+                                          ░░░░░░░░░░░▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒▒▒▒▒░▒▒░░░                             
+                                            ░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒░░░▒▒▒░░░▒░░                               
+                                              ░░░░░░░░░░░░░░░░░░░░░░▒░░▒▒░░░░░▒░▒▒                                 
+                                                ░░░░░░░░░░░░░░░░░░░░▒▒░░░▒▒▒▒▒▒                                    
+                                                   ░░░░░░░▒░░░░░░░░░░▒▒▒▒▒▒▒░                                      
+                                                         ░░░░▒▒▒▒▒▒▒▒▒░                                            
+                
+                Num mundo pós-apocalíptico onde os pastéis de nata se tornaram a moeda mais valiosa do planeta, você é um aventureiro destemido (ou talvez apenas desesperado) que se vê envolvido no 
+                mercado negro dessas delícias cremosas. Após uma misteriosa escassez global de canela e massa folhada, os pastéis de nata foram declarados "propriedade da elite mundial", e 
+                possuí-los é crime punível com prisão perpétua... ou pior: ficar sem sobremesa para sempre.
+                
+                Você, porém, não se importa com as regras. Afinal, quem pode resistir ao chamado de um pastel de nata quentinho, com aquela casca crocante e o recheio cremoso? Sua missão é simples (ou não): 
+                contrabandear pastéis de nata através de fronteiras perigosas, fugir de guardas corruptos que também sonham com um pedacinho do seu tesouro, e negociar com traficantes de doces em becos escuros.
+                
+                Mas cuidado! O caminho está repleto de desafios. Você terá que enfrentar cães farejadores treinados para detectar aroma de canela, drones que patrulham os céus em busca de farinha suspeita, 
+                e até mesmo rivais que farão de tudo para roubar sua preciosa carga. E, é claro, há o maior desafio de todos: resistir à tentação de comer os pastéis antes de entregá-los.
+                
+                Prepare-se para uma jornada repleta de ação, estratégia e muito, muito açúcar. O destino dos pastéis de nata está em suas mãos. Será que você tem o que é preciso para se tornar
+                o maior contrabandista de doces que o mundo já viu? Ou será que vai acabar preso... ou pior, sem nenhum pastel para chamar de seu?
+                
+                Boa sorte, contrabandista. O mundo dos doces proibidos aguarda por você.
+                
+                (Enter para continuar)
+                """ + Tools.ConsoleColors.RESET);
+        in.nextLine();
+
+        Tools.Clear();
+    }
+
     public static Personagem Inicializacao() {
         Scanner in = new Scanner(System.in);
         String nome;
