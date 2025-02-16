@@ -124,7 +124,7 @@ public class Programador extends Personagem {
             }
 
             ataqueInimigo = inimigo.getForca() + inimigo.getBufForca();
-            ataqueInimigo -= (int) (ataqueInimigo * ((double) (this.defesa + this.getBufForca()) / 100));
+            ataqueInimigo -= (int) (ataqueInimigo * ((double) (this.defesa + this.bufDefesa) / 100));
 
 
             if (inimigo.getPocao() > 0 && inimigo.getVidaAtual() <= 100) {
@@ -264,28 +264,35 @@ public class Programador extends Personagem {
 
                                     if (this.vidaAtual + pocaos.get(index).getVida() > this.vidaMaxima) {
                                         System.out.println(Tools.ConsoleColors.PURPLE + "O maximo que a tua vida pode atingir é: " + this.vidaMaxima + ". Tens a certeza que queres usar a poção?\n|1 - Sim|\t\t|2 - Não|");
-                                    }
-                                    do {
-                                        try {
-                                            in = new Scanner(System.in);
-                                            resposta = in.nextInt();
-                                            if (resposta == 1) {
-                                                this.usarPocao(pocaos.get(index));
-                                                System.out.println(Tools.ConsoleColors.GREEN + "Tomas-te a poção " + pocaos.get(index).getNome() + Tools.ConsoleColors.RESET);
-                                                this.RmvInventario(pocaos.get(index));
-                                                vali2 = false;
-                                                vali = false;
-                                                break;
-                                            } else if (resposta == 2) {
-                                                vali2 = false;
-                                                break;
-                                            } else {
-                                                System.out.println(Tools.ConsoleColors.PURPLE + "Insira uma opção valida!" + Tools.ConsoleColors.RESET);
+                                        do {
+                                            try {
+                                                in = new Scanner(System.in);
+                                                resposta = in.nextInt();
+                                                if (resposta == 1) {
+                                                    this.usarPocao(pocaos.get(index));
+                                                    System.out.println(Tools.ConsoleColors.GREEN + "Tomas-te a poção " + pocaos.get(index).getNome() + Tools.ConsoleColors.RESET);
+                                                    this.RmvInventario(pocaos.get(index));
+                                                    vali2 = false;
+                                                    vali = false;
+                                                    break;
+                                                } else if (resposta == 2) {
+                                                    vali2 = false;
+                                                    break;
+                                                } else {
+                                                    System.out.println(Tools.ConsoleColors.PURPLE + "Insira uma opção valida!" + Tools.ConsoleColors.RESET);
+                                                }
+                                            } catch (InputMismatchException e) {
+                                                System.out.println(Tools.ConsoleColors.PURPLE + "Insira apenas números!!!" + Tools.ConsoleColors.RESET);
                                             }
-                                        } catch (InputMismatchException e) {
-                                            System.out.println(Tools.ConsoleColors.PURPLE + "Insira apenas números!!!" + Tools.ConsoleColors.RESET);
-                                        }
-                                    } while (true);
+                                        } while (true);
+                                    }else {
+                                        this.usarPocao(pocaos.get(index));
+                                        System.out.println(Tools.ConsoleColors.GREEN + "Tomas-te a poção " + pocaos.get(index).getNome() + Tools.ConsoleColors.RESET);
+                                        this.RmvInventario(pocaos.get(index));
+                                        vali2 = false;
+                                        vali = false;
+                                    }
+
 
 
                                 } else if (resposta == 2) {

@@ -73,7 +73,7 @@ public abstract class Entidade {
 
     public abstract void ExibirDetalhes();
 
-    //provavelmente vou ter de mudar
+
     public void usarPocao(Pocao pocao) {
         if (this.vidaAtual + pocao.getVida() >= this.vidaMaxima) {
             this.vidaAtual = this.vidaMaxima;
@@ -81,8 +81,15 @@ public abstract class Entidade {
             this.vidaAtual += pocao.getVida();
         }
 
-        this.forca += pocao.getAtaque();
-        this.defesa += pocao.getDefesa();
+        this.bufForca += pocao.getAtaque();
+
+        if (this.bufDefesa + this.defesa + pocao.getDefesa() >= 100) {
+            this.bufDefesa += 100;
+        }else {
+            this.bufDefesa += pocao.getDefesa();
+        }
+
+
         this.vidaAtual -= pocao.getDano();
 
     }

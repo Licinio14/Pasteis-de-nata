@@ -48,6 +48,9 @@ public abstract class ItensHeroi {
     }
 
     public boolean PodeUsar(TipoHeroi tipo){
+        if (tiposHeroiAceites.contains(TipoHeroi.TODOS)){
+            return true;
+        }
         return tiposHeroiAceites.contains(tipo);
     }
 

@@ -124,7 +124,7 @@ public class Fugitivo extends Personagem {
             }
 
             ataqueInimigo = inimigo.getForca() + inimigo.getBufForca();
-            ataqueInimigo -= (int) (ataqueInimigo * ((double) (this.defesa + this.getBufForca()) / 100));
+            ataqueInimigo -= (int) (ataqueInimigo * ((double) (this.defesa + this.bufDefesa) / 100));
 
 
             if (inimigo.getPocao() > 0 && inimigo.getVidaAtual() <= 100) {

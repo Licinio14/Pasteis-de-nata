@@ -3,13 +3,12 @@ package Loja;
 import Entidade.Heroi.ClassHeroi.Fugitivo;
 import Entidade.Heroi.ClassHeroi.Programador;
 import Entidade.Heroi.ClassHeroi.Militar;
-import Entidade.Heroi.CriarHerois.TiposHerois;
 import Entidade.Heroi.Personagem;
 import Enums.TipoHeroi;
+import Itens.ArmaPrincipal;
 import Itens.ItensHeroi;
 import Tools.Tools;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -128,26 +127,59 @@ public class Mercado {
 
                 }else if (resposta >= 1 && resposta <= 10){
                     int index = resposta - 1;
-                    TipoHeroi tipo = getTipoHeroiStore(player);
-                    boolean podeComprar = randomstock.get(index).PodeUsar(tipo);
+                    boolean podeComprar;
+
+                    if (randomstock.get(index) instanceof ArmaPrincipal){
+                        TipoHeroi tipo = getTipoHeroiStore(player);
+                        podeComprar = randomstock.get(index).PodeUsar(tipo);
+                    }else {
+                        podeComprar = true;
+                    }
 
                     if (podeComprar){
-                        if (player.getGold() >= randomstock.get(index).getPreco()){
-                            System.out.println(Tools.ConsoleColors.GREEN + "Item comprado com sucesso!" + Tools.ConsoleColors.RESET);
-                            player.AddInventario(randomstock.get(index));
-                            player.setGold(player.getGold() - randomstock.get(index).getPreco());
-                            randomstock.remove(index);
-                        }else {
-                            // evento aleatorio que pode deixar o player compar o item de graça se nao tiver dinheiro
-                            int sorte = rd.nextInt(1,101);
-                            int numeroAcertar = rd.nextInt(1,101);
 
-                            if (sorte == numeroAcertar){
-                                System.out.println(Tools.ConsoleColors.GREEN + "O vendedor esta muito feliz hoje e ofereceu-te o item!" + Tools.ConsoleColors.RESET);
-                                player.AddInventario(randomstock.get(index));
+                        if (randomstock.get(index) instanceof ArmaPrincipal){
+
+                            if (player.getGold() >= randomstock.get(index).getPreco()){
+                                System.out.println(Tools.ConsoleColors.GREEN + "Item comprado com sucesso!" + Tools.ConsoleColors.RESET);
+                                ArmaPrincipal arma = (ArmaPrincipal) randomstock.get(index);
+                                player.setArma(arma);
+                                player.setGold(player.getGold() - randomstock.get(index).getPreco());
                                 randomstock.remove(index);
                             }else {
-                                System.out.println(Tools.ConsoleColors.PURPLE + "Não tens Bitcoins suficientes!" + Tools.ConsoleColors.RESET);
+                                // evento aleatorio que pode deixar o player compar o item de graça se nao tiver dinheiro
+                                int sorte = rd.nextInt(1,101);
+                                int numeroAcertar = rd.nextInt(1,101);
+
+                                if (sorte == numeroAcertar){
+                                    System.out.println(Tools.ConsoleColors.GREEN + "O vendedor esta muito feliz hoje e ofereceu-te o item!" + Tools.ConsoleColors.RESET);
+                                    ArmaPrincipal arma = (ArmaPrincipal) randomstock.get(index);
+                                    player.setArma(arma);
+                                    randomstock.remove(index);
+                                }else {
+                                    System.out.println(Tools.ConsoleColors.PURPLE + "Não tens Bitcoins suficientes!" + Tools.ConsoleColors.RESET);
+                                }
+                            }
+
+                        } else {
+
+                            if (player.getGold() >= randomstock.get(index).getPreco()){
+                                System.out.println(Tools.ConsoleColors.GREEN + "Item comprado com sucesso!" + Tools.ConsoleColors.RESET);
+                                player.AddInventario(randomstock.get(index));
+                                player.setGold(player.getGold() - randomstock.get(index).getPreco());
+                                randomstock.remove(index);
+                            }else {
+                                // evento aleatorio que pode deixar o player compar o item de graça se nao tiver dinheiro
+                                int sorte = rd.nextInt(1,101);
+                                int numeroAcertar = rd.nextInt(1,101);
+
+                                if (sorte == numeroAcertar){
+                                    System.out.println(Tools.ConsoleColors.GREEN + "O vendedor esta muito feliz hoje e ofereceu-te o item!" + Tools.ConsoleColors.RESET);
+                                    player.AddInventario(randomstock.get(index));
+                                    randomstock.remove(index);
+                                }else {
+                                    System.out.println(Tools.ConsoleColors.PURPLE + "Não tens Bitcoins suficientes!" + Tools.ConsoleColors.RESET);
+                                }
                             }
                         }
 

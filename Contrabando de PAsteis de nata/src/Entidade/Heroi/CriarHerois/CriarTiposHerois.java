@@ -4,7 +4,7 @@ import Entidade.Heroi.ClassHeroi.Fugitivo;
 import Entidade.Heroi.ClassHeroi.Militar;
 import Entidade.Heroi.ClassHeroi.Programador;
 
-public class TiposHerois {
+public class CriarTiposHerois {
 
     /**
      * Cria um heroi do tipo Fugitivo com -10 de defesa e 150 gold

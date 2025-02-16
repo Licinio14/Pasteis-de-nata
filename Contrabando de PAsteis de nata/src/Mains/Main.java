@@ -1,14 +1,25 @@
 package Mains;
 
+import Entidade.Heroi.Personagem;
+import Jogo.Inicializacao;
 import Loja.CriarMercado;
 import Loja.Mercado;
 
 public class Main {
     public static void main(String[] args) {
-        //Inicializacao.Inicializacao();
 
-        System.out.println("⚔\uFE0F");
+        //iniciar o mercado
+        Mercado loja = CriarMercado.getMercadoCriado();
+        CriarMercado.AdicionarTiposNasArmas();
 
-        Mercado continente = CriarMercado.getMercadoCriado();
+        Personagem player = Inicializacao.Inicializacao();
+
+
+
+        player.ExibirDetalhes();
+
+
+
+
     }
 }

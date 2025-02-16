@@ -35,7 +35,7 @@ public class Militar extends Personagem {
 
 
             ataqueInimigo = inimigo.getForca() + inimigo.getBufForca();
-            ataqueInimigo -= (int) (ataqueInimigo * ((double) (this.defesa + this.getBufForca()) / 100));
+            ataqueInimigo -= (int) (ataqueInimigo * ((double) (this.defesa + this.bufDefesa) / 100));
 
             if (rondas == 0) {
                 System.out.println(Tools.ConsoleColors.YELLOW + "\nTentas pegar na tua arma, porem como ja não és agil, o inimigo consegue te atacar primeiro!\n" + Tools.ConsoleColors.RESET);
