@@ -21,7 +21,7 @@ public class Inimigo extends Entidade {
     public Inimigo(String nome, int vidaMaxima, int forca, int defesa, int gold) {
         super(nome, vidaMaxima, forca, defesa);
         this.gold = gold;
-        this.pocao = rd.nextInt(3);
+        this.pocao = rd.nextInt(2);
     }
 
     /**

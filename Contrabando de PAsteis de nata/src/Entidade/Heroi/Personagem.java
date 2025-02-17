@@ -101,6 +101,28 @@ public abstract class Personagem extends Entidade {
     }
 
     /**
+     * Aumenta os status do heroi
+     * @param vida quantidade a aumentar de vida atual (int)
+     * @param forca quantidade de força a aumentar (int)
+     * @param defesa quantidade de defesa a aumentar (int)
+     */
+    public void AddStatus(int vida, int forca, int defesa) {
+        if (this.vidaAtual + vida <= vidaMaxima) {
+            this.vidaAtual += vida;
+        }else {
+            this.vidaAtual = vidaMaxima;
+        }
+
+        if (this.defesa + this.bufDefesa + defesa <= 100){
+            this.bufDefesa += defesa;
+        }else {
+            this.bufDefesa = 100 - this.defesa;
+        }
+
+        this.bufForca += forca;
+    }
+
+    /**
      * Mostra os detalhes do heroi
      */
     public void ExibirDetalhes(){
