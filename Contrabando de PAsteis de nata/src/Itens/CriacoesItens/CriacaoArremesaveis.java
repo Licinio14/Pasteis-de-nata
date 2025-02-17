@@ -4,6 +4,9 @@ import Enums.TipoConsumivel;
 import Enums.TipoHeroi;
 import Itens.Arremesavel;
 
+/**
+ * Classe para criação automatica dos arremesaveis
+ */
 public class CriacaoArremesaveis {
     public static Arremesavel pedra = new Arremesavel("Pedra pequena",10, TipoConsumivel.DANOINSTANTANEO, TipoHeroi.TODOS,20,"Uma pequena pedra que ainda contem vestigios de terra de onde foi apanhada, da 20 de dano");
     public static Arremesavel facaA = new Arremesavel("Faca Arremesavel", 40,TipoConsumivel.DANOINSTANTANEO,TipoHeroi.TODOS,80,"Uma faca velha que o vendedor encontrou no fundo da mala, com muita ferrugem e a cor já toda desgastada, da 80 de dano");

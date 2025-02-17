@@ -28,7 +28,7 @@ public abstract class ItensHeroi {
         return nome;
     }
 
-    /***
+    /**
      * Retorna o preço do item
      * @return (int)
      */
@@ -47,6 +47,11 @@ public abstract class ItensHeroi {
         System.out.println();
     }
 
+    /**
+     * Retorna se pode usar ou nao o Item
+     * @param tipo tipo de heroi a testar (TipoHeroi)
+     * @return true se poder usar / false se nao puder
+     */
     public boolean PodeUsar(TipoHeroi tipo){
         if (tiposHeroiAceites.contains(TipoHeroi.TODOS)){
             return true;

@@ -13,6 +13,14 @@ import java.util.Scanner;
 
 public class Programador extends Personagem {
 
+    /**
+     * Metudo para criar um heroi do tipo Fugitivo
+     * @param nome nome do heroi (string)
+     * @param vidaMaxima vida inicial do heroi
+     * @param forca força do heroi
+     * @param defesa defesa do heroi
+     * @param gold quantidade de gold com que o heroi ira começar
+     */
     public Programador(String nome, int vidaMaxima,int forca,int defesa,int gold) {
         super(nome, vidaMaxima,forca, defesa, 1, gold);
     }

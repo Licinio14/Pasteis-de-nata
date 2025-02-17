@@ -8,6 +8,10 @@ import Itens.CriacoesItens.CriarPocoes;
 
 public class CriarMercado {
 
+    /**
+     * Metudo para criar o mercado
+     * @return retorna um mercado ja criado (Mercado)
+     */
     public static Mercado getMercadoCriado(){
         Mercado lojaDos300 = new Mercado();
 
@@ -20,6 +24,8 @@ public class CriarMercado {
         lojaDos300.adicionarStock(CriarArmasPrincipais.ram32);
         lojaDos300.adicionarStock(CriarArmasPrincipais.colher);
         lojaDos300.adicionarStock(CriarArmasPrincipais.escada);
+        //arma para ser adiquirida em evento
+        //lojaDos300.adicionarStock(CriarArmasPrincipais.error);
 
         //armas arremesaveis
         lojaDos300.adicionarStock(CriacaoArremesaveis.pedra);
@@ -27,6 +33,7 @@ public class CriarMercado {
         lojaDos300.adicionarStock(CriacaoArremesaveis.bugs);
         lojaDos300.adicionarStock(CriacaoArremesaveis.escadaA);
         lojaDos300.adicionarStock(CriacaoArremesaveis.granada);
+        //para ser comprada em evento
         //lojaDos300.adicionarStock(CriacaoArremesaveis.pipocas);
         lojaDos300.adicionarStock(CriacaoArremesaveis.carabela);
 
@@ -38,6 +45,8 @@ public class CriarMercado {
         lojaDos300.adicionarStock(CriarPocoes.forcaG);
         lojaDos300.adicionarStock(CriarPocoes.defesaP);
         lojaDos300.adicionarStock(CriarPocoes.defesaG);
+
+        // nao implementado o dano por turnos
         //lojaDos300.adicionarStock(CriarPocoes.fogo);
         //lojaDos300.adicionarStock(CriarPocoes.veneno);
         //lojaDos300.adicionarStock(CriarPocoes.smoke);
@@ -45,6 +54,9 @@ public class CriarMercado {
         return lojaDos300;
     }
 
+    /**
+     * Metudo para adicionar os tipos de herois que podem usar as armas
+     */
     public static void AdicionarTiposNasArmas(){
         CriarArmasPrincipais.faca.AdicionaTipoHeroi(TipoHeroi.TODOS);
         CriarArmasPrincipais.pistola.AdicionaTipoHeroi(TipoHeroi.TODOS);

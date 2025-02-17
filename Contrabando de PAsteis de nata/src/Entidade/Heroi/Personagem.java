@@ -36,44 +36,82 @@ public abstract class Personagem extends Entidade {
         this.inventario = new ArrayList<>();
     }
 
+    /**
+     * Retorna o nivel do heroi
+     * @return (int)
+     */
     public int getLvl() {
         return lvl;
     }
 
+    /**
+     * Retorna a quantidade de gold que o heroi tem
+     * @return (int)
+     */
     public int getGold() {
         return gold;
     }
 
+    /**
+     * Retorna a arma que o heroi tem
+     * @return (ArmaPrincipal)
+     */
     public ArmaPrincipal getArma() {
         return arma;
     }
 
+    /**
+     * Muda o nivel do heroi
+     * @param lvl (int)
+     */
     public void setLvl(int lvl) {
         this.lvl = lvl;
     }
 
+    /**
+     * Muda o gold que o heroi tem
+     * @param gold (int)
+     */
     public void setGold(int gold) {
         this.gold = gold;
     }
 
+    /**
+     * Muda a arma que o heroi tem equipada
+     * @param arma (ArmaPrincipal)
+     */
     public void setArma(ArmaPrincipal arma) {
         this.arma = arma;
     }
 
+    /**
+     * Adiciona um item ao inventario do heroi
+     * @param hero (ItensHeroi)
+     */
     public void AddInventario(ItensHeroi hero) {
         inventario.add(hero);
     }
 
+    /**
+     * Remove o item do inventario do heroi
+     * @param item (ItensHeroi)
+     */
     public void RmvInventario(ItensHeroi item) {
         inventario.remove(item);
     }
 
+    /**
+     * Mostra os detalhes do heroi
+     */
     public void ExibirDetalhes(){
         System.out.println("\n|Nome: " + super.nome + "|\t|❤\uFE0F" + super.vidaAtual + "❤\uFE0F|\t|\uD83D\uDCAA" + super.forca + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + super.defesa + "\uD83D\uDEE1\uFE0F|\t|\uD83C\uDF96" + this.lvl + "\uD83C\uDF96|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|\n");
         this.arma.ExibirDetalhes();
         ExibirInventario();
     }
 
+    /**
+     * Mostra o inventario do heroi
+     */
     public void ExibirInventario(){
         int i = 0;
         System.out.println();
@@ -83,9 +121,17 @@ public abstract class Personagem extends Entidade {
         }
     }
 
+    /**
+     * Metudo para iniciar a batalha entre o heroi e o inimigo
+     * @param inimigo inimigo com quem vai batalhar (Inimigo)
+     * @return true se o heroi ganhar / false se o heroi perder
+     */
     public abstract boolean Atacar(Inimigo inimigo);
 
 
+    /**
+     * Mostra os status basicos do heroi
+     */
     @Override
     public void MostrarStatus() {
         String cor;
@@ -102,6 +148,9 @@ public abstract class Personagem extends Entidade {
         System.out.print(cor + "|Nome: " + super.nome + "|\t" + Tools.ConsoleColors.BLUE_BOLD + "|❤\uFE0F" + super.vidaAtual + "❤\uFE0F|\t|\uD83D\uDCAA" + (super.forca + super.bufForca + this.getArma().getAtaque()) + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + (super.defesa + super.bufDefesa) + "\uD83D\uDEE1\uFE0F|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|" + Tools.ConsoleColors.RESET);
     }
 
+    /**
+     * Mostra uma barra de vida colorida do heroi
+     */
     public void MostrarVida() {
         String cor;
         int count = 0, quantidade;
@@ -163,6 +212,9 @@ public abstract class Personagem extends Entidade {
         }
     }
 
+    /**
+     * Metudo para mostrar e usar poções fora da batalha
+     */
     public void MostrarUsarPocaoDoInventario() {
         Scanner in = new Scanner(System.in);
         ArrayList<Pocao> pocaos = new ArrayList<>();

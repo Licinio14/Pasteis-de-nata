@@ -5,6 +5,12 @@ import Entidade.NPC.Inimigo;
 import java.util.Random;
 
 public class CriarInimigo {
+    /**
+     * Retrna um inimigo criado com o nome e o tipo escolhido
+     * @param tipo tipo de inimigo, 1 - 6, sendo o 6 um boss (int)
+     * @param nome nome para o inimigo (string)
+     * @return retorna o objecto inimigo (Inimigo)
+     */
     public static Inimigo CriarInimigo(int tipo, String nome) {
         Random rd = new Random();
         int gold = rd.nextInt(15,100);

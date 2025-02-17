@@ -8,6 +8,10 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Inicializacao {
+
+    /**
+     * Metudo para mostrar o splash screen do jogo, contando a historia
+     */
     public static void InicioHistoria(){
         Scanner in = new Scanner(System.in);
         System.out.println(Tools.ConsoleColors.BLUE_BOLD_BRIGHT);
@@ -61,6 +65,10 @@ public class Inicializacao {
         Tools.Clear();
     }
 
+    /**
+     * Metudo para iniciar o jogo e criar a personagem
+     * @return retorna a personagem criada
+     */
     public static Personagem Inicializacao() {
         Scanner in = new Scanner(System.in);
         String nome;
@@ -137,6 +145,7 @@ public class Inicializacao {
 
         }while (true);
 
+        // escolha e criação da personagem
         do {
             System.out.println(Tools.ConsoleColors.BLUE + "Qual é o personagem que deseja criar:\n|1 - Fugitivo de Caxias|\t|2 - Militar aposentado|\t|3 - Programador|\t|4 - Mostrar Diferenças|" + Tools.ConsoleColors.RESET);
             in = new Scanner(System.in);
@@ -167,6 +176,9 @@ public class Inicializacao {
 
     }
 
+    /**
+     * Metudo para mostrar a historia e as diferenças de cada tipo de heroi
+     */
     private static void ExibirDiferencas() {
         Tools.Clear();
         Scanner in = new Scanner(System.in);

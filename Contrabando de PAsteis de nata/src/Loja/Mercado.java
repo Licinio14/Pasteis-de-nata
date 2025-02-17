@@ -208,6 +208,11 @@ public class Mercado {
 
     }
 
+    /**
+     * Metudo para conseguir o tipo do heroi
+     * @param player heroi do jogador (Personagem)
+     * @return enum tipo do heroi (TipoHeroi)
+     */
     public TipoHeroi getTipoHeroiStore(Personagem player){
         if (player instanceof Fugitivo){
             return TipoHeroi.FUGITIVO;

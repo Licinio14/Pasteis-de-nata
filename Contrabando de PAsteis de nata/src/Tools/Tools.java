@@ -1,6 +1,10 @@
 package Tools;
 
 public class Tools {
+
+    /**
+     * Metudo para mudar as cores do que é apresentado na consola
+     */
     public static class ConsoleColors {
         // Reset
         public static final String RESET = "\033[0m";  // Text Reset

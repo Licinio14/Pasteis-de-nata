@@ -3,6 +3,9 @@ package Itens.CriacoesItens;
 import Enums.TipoHeroi;
 import Itens.ArmaPrincipal;
 
+/**
+ * Classe para criação automatica dos armas principais
+ */
 public class CriarArmasPrincipais {
     public static ArmaPrincipal faca = new ArmaPrincipal("Pequena faca", 25, 10, 15, 0, "Fazes um pequeno corte no inimigo", TipoHeroi.TODOS);
     public static ArmaPrincipal pistola = new ArmaPrincipal("Pistola antiga enferrujada", 40, 25, 50, 0, "Disparas duas vezes seguidas", TipoHeroi.TODOS);

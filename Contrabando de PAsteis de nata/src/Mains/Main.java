@@ -2,13 +2,17 @@ package Mains;
 
 import Entidade.Heroi.Personagem;
 import Jogo.Inicializacao;
+import Jogo.Portugal;
 import Loja.CriarMercado;
 import Loja.Mercado;
+import Tools.Tools;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        int podeSeguir = 0;
+        Personagem copia;
 
-        //MOstrar o inicio da historia
+        //Mostrar o inicio da historia
         Inicializacao.InicioHistoria();
 
         //iniciar o mercado
@@ -16,10 +20,14 @@ public class Main {
         CriarMercado.AdicionarTiposNasArmas();
 
         Personagem player = Inicializacao.Inicializacao();
+        copia = player;
 
-
-
-        player.ExibirDetalhes();
+        podeSeguir = Portugal.iniciarPortugal(player,loja);
+        if (podeSeguir == 0){
+            return;
+        }else if (podeSeguir == 1){
+            System.out.println(Tools.ConsoleColors.RED + "Infelizmente morres-te, mais sorte para a proxima!");
+        }
 
 
 

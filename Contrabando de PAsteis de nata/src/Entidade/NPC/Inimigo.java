@@ -10,16 +10,32 @@ public class Inimigo extends Entidade {
     protected int gold;
     protected int pocao;
 
+    /**
+     * Cria um inimigo
+     * @param nome nome do inimigo (string)
+     * @param vidaMaxima vida inicial do inimigo (int)
+     * @param forca força do inimigo (int)
+     * @param defesa defesa do inimigo (int)
+     * @param gold quantidade de gold que o inimigo tem (int)
+     */
     public Inimigo(String nome, int vidaMaxima, int forca, int defesa, int gold) {
         super(nome, vidaMaxima, forca, defesa);
         this.gold = gold;
         this.pocao = rd.nextInt(3);
     }
 
+    /**
+     * Retorna a quantidade de gold que o inimigo tem
+     * @return (int)
+     */
     public int getGold() {
         return gold;
     }
 
+    /**
+     * Retorna a quantidade de poções que o inimigo tem
+     * @return (int)
+     */
     public int getPocao() {
         return pocao;
     }
@@ -31,11 +47,17 @@ public class Inimigo extends Entidade {
         this.pocao = this.pocao - 1;
     }
 
+    /**
+     * Exibe os detalhes do inimigo
+     */
     @Override
     public void ExibirDetalhes() {
         System.out.println("\n|Nome: " + super.nome + "|\t|❤\uFE0F" + super.vidaMaxima + "❤\uFE0F|\t|\uD83D\uDCAA" + super.forca + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + super.defesa + "\uD83D\uDEE1\uFE0F|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|\n");
     }
 
+    /**
+     * Exibe os detalhes basicos do status do inimigo
+     */
     @Override
     public void MostrarStatus() {
         String cor;
@@ -52,6 +74,9 @@ public class Inimigo extends Entidade {
         System.out.print(cor + "|Nome: " + super.nome + "|\t" + Tools.ConsoleColors.BLUE_BOLD + "|❤\uFE0F" + super.vidaAtual + "❤\uFE0F|\t|\uD83D\uDCAA" + (super.forca + super.bufForca) + "\uD83D\uDCAA|\t|\uD83D\uDEE1\uFE0F" + (super.defesa + super.bufDefesa) + "\uD83D\uDEE1\uFE0F|\t|\uD83E\uDE99" + this.gold + "\uD83E\uDE99|" + Tools.ConsoleColors.RESET);
     }
 
+    /**
+     * mostra uma barra de vida colorida conforme a quantidade de vida do inimigo
+     */
     public void MostrarVida() {
         String cor;
         int count = 0, quantidade;
