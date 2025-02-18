@@ -23,10 +23,10 @@ public abstract class Personagem extends Entidade {
      * Cria o heroi com quem o utilizador vai jogar
      * @param nome Nome do Heroi (string)
      * @param vidaMaxima Vida maxima com que o heroi vai começar (int)
-     * @param forca
-     * @param defesa
-     * @param lvl
-     * @param gold
+     * @param forca força do heroi (int)
+     * @param defesa defesa do heroi (int)
+     * @param lvl nivel do heroi (int)
+     * @param gold gold fo heroi (int)
      */
     public Personagem(String nome, int vidaMaxima, int forca, int defesa, int lvl, int gold) {
         super(nome, vidaMaxima, forca, defesa);

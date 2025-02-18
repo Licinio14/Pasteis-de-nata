@@ -1,6 +1,9 @@
 package Jogo;
 
 import Assets.SoundFiles.Audio;
+import Entidade.Heroi.ClassHeroi.Fugitivo;
+import Entidade.Heroi.ClassHeroi.Militar;
+import Entidade.Heroi.ClassHeroi.Programador;
 import Entidade.Heroi.Personagem;
 import Loja.CriarMercado;
 import Loja.Mercado;
@@ -21,7 +24,7 @@ public class Jogo {
         boolean mesmaPersonagem = true;
 
         //iniciar musica
-        Audio.playMusic("Assets/SoundFiles/Naruto Shippuden opening 3 - Blue Bird (8bit).wav");
+        Audio.playMusic("src/Assets/SoundFiles/Naruto Shippuden opening 3 - Blue Bird (8bit).wav");
 
         System.out.println("Iniciando Jogo...");
 
@@ -33,7 +36,10 @@ public class Jogo {
         Inicializacao.InicioHistoria();
 
         player = Inicializacao.Inicializacao();
-        copia = player;
+
+        int vidaMax = player.getVidaMaxima();
+        int forca = player.getForca();
+        String nome = player.getNome();
 
 
         do {
@@ -45,13 +51,22 @@ public class Jogo {
                 Inicializacao.InicioHistoria();
 
                 player = Inicializacao.Inicializacao();
-                copia = player;
+            }else {
+                if (player instanceof Programador){
+                    player = new Programador(nome,vidaMax,forca,0,120);
+                } else if (player instanceof Militar) {
+                    player = new Militar(nome,vidaMax,forca,20,80);
+                } else if (player instanceof Fugitivo) {
+                    player = new Fugitivo(nome,vidaMax,forca,-10,150);
+                }
             }
+
 
             // verifica se o player morreu ou nao
             podeSeguir = Portugal.iniciarPortugal(player,loja);
             if (podeSeguir == 1){
                 System.out.println(Tools.ConsoleColors.RED + "Infelizmente morres-te, mais sorte para a proxima!");
+                Tools.Pause(4000);
             }
 
             do {

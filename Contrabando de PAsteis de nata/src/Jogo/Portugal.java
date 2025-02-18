@@ -64,6 +64,7 @@ public class Portugal {
                 Aceitas a porposta? |1 - Sim|\t\t\t\t|2 - Não|
                 """);
 
+        // se aceitar a historia continua, se recusar, acaba o jogo
         boolean vali = true;
         do {
             try {
@@ -192,6 +193,7 @@ public class Portugal {
                                 Ves que o Luis esta a tirar qualquer coisa da mala, parece uma garrafa termica.
                                 """);
 
+                        //decidir se oferece cafe que da bonos, ou guayoyo que da insta kill
                         int provavilidade = rd.nextInt(101);
 
                         if (provavilidade < 95) {
@@ -404,6 +406,7 @@ public class Portugal {
                 in = new Scanner(System.in);
                 int resposta = in.nextInt();
                 if (resposta == 1) {
+                    //quantidade aleatoria de bitcoins do "tesouro"
                     int quantidade = rd.nextInt(10, 351);
 
                     System.out.println(Tools.ConsoleColors.BLUE + "Quando estas a sair do carro, ves algumas bitcoins no chão e apanhas!" + Tools.ConsoleColors.RESET);
@@ -458,6 +461,7 @@ public class Portugal {
                     loja.Vender(player);
                     break;
                 } else if (resposta == 2) {
+                    //probavilidade para o evento de dar a arma secreta do jogo, ou se vai dar pipocas
                     int probavilidade = rd.nextInt(1, 101);
 
                     System.out.println(Tools.ConsoleColors.BLUE + """
@@ -559,6 +563,7 @@ public class Portugal {
 
         Tools.Clear();
 
+        //escolha entre batalha ou armadilha
         System.out.println("""
                 \033[0;34m
                 O carro para mesmo atras do teu, abre a porta e sai de la o Ash, um incrivel treinador de pokemons, que usa pasteis de nata para aumentar a vida e
@@ -579,18 +584,20 @@ public class Portugal {
                     System.out.println(Tools.ConsoleColors.BLUE + "Desides enfrentar Ash" + Tools.ConsoleColors.RESET);
                     boolean subreviveu = player.Atacar(CriarInimigo.CriarInimigo(2, "Ash e Brabochu"));
 
+                    // se ganhar a batalha, ganha tambem status como premio
                     if (!subreviveu) {
                         return 1;
                     } else {
-                        System.out.println(Tools.ConsoleColors.GREEN + "Quando derrotas Brabochu, ele dropa uma poção estranha e Ash foge de imediato!\n\nNão tens nada a perder, portanto tomas a poção!\n\nA poçao restaura toda a tua vida e ainda te da mais 50 de ataque e 20 de defesa!\n\nPara alem disso, ainda ficaram 1000 bitcoins no chão!");
-                        player.AddStatus(player.getVidaMaxima(), 50, 20);
-                        player.setGold(player.getGold() + 1000);
+                        System.out.println(Tools.ConsoleColors.GREEN + "Quando derrotas Brabochu, ele dropa uma poção estranha e Ash foge de imediato!\n\nNão tens nada a perder, portanto tomas a poção!\n\nA poçao restaura toda a tua vida e ainda te da mais 25 de ataque e 10 de defesa!\n\nPara alem disso, ainda ficaram 300 bitcoins no chão!");
+                        player.AddStatus(player.getVidaMaxima(), 25, 10);
+                        player.setGold(player.getGold() + 300);
                     }
 
                     break;
                 } else if (resposta == 2) {
                     Tools.Clear();
 
+                    // executa a armadilha
                     System.out.println("""
                             \033[0;34m
                             Quando tentas fugir, Brabochu usa o seu ataque especial!
@@ -603,11 +610,11 @@ public class Portugal {
                             \033[0;34m
                             Ataque super efetivo! Menus 300 pontos de vida!
                             
-                            No entanto, consegues fugir e tambem abasteces-te o carro e não pagaste (+ 500 bitcoins)
+                            No entanto, consegues fugir e tambem abasteces-te o carro e não pagaste (+ 30 bitcoins)
                             """);
 
                     player.AddStatus(-300, 0, 0);
-                    player.setGold(player.getGold() + 500);
+                    player.setGold(player.getGold() + 30);
 
                     if (player.getVidaAtual() <= 0) {
                         return 1;
@@ -655,15 +662,19 @@ public class Portugal {
                 """);
 
         do {
+            //caso comprimente o segurança ganha mais status, caso contrario, cai numa armadilha
             try {
                 in = new Scanner(System.in);
                 int resposta = in.nextInt();
                 if (resposta == 1) {
-                    System.out.println(Tools.ConsoleColors.BLUE + "Comprimentas o segurança e o segurança comprimenta-te de volta.\n\nSegues para a sala com + 25 de dano e +20 de defesa!" + Tools.ConsoleColors.RESET);
-                    player.AddStatus(0, 25, 20);
+                    System.out.println(Tools.ConsoleColors.BLUE + "Comprimentas o segurança e o segurança comprimenta-te de volta.\n\nSegues para a sala com + 10 de dano e +5 de defesa!" + Tools.ConsoleColors.RESET);
+                    player.AddStatus(0, 10, 5);
                     Tools.Pause(4000);
                     break;
                 } else if (resposta == 2) {
+                    System.out.println(Tools.ConsoleColors.BLUE + "Com toda a preça que tens, acabas por escorregar nas escadas e cair.\n\nPerdes-te 50 de vida e 10 de defesa." + Tools.ConsoleColors.RESET);
+                    player.AddStatus(-50, 0, -10);
+                    Tools.Pause(4000);
                     break;
                 } else {
                     System.out.println(Tools.ConsoleColors.PURPLE + "Insere uma opção valida!" + Tools.ConsoleColors.RESET);
@@ -790,7 +801,12 @@ public class Portugal {
                     Podes parar de comer os pasteis de nata e ouvir o que tenho a dizer por um pouco?
                     
                     Deixa para la, tambem nao era nada de importante...
+                    
+                    (Enter para continuar)
                     """);
+
+            in.nextLine();
+
         } else {
             Tools.Clear();
             return 1;
