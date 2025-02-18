@@ -45,8 +45,6 @@ public class Portugal {
                 \t\t\t\t\t\t\t\t\033[0;32m▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\033[0;31m████████████████████████████████████████████████████████████
                 """);
 
-        /*
-
         //inicio da historia
         System.out.println("""
                 \n\n\n\033[0;34m
@@ -78,7 +76,7 @@ public class Portugal {
                         break;
                     case 2:
                         FimJogo();
-                        return 0;
+                        return 1;
                     default:
                         System.out.println(Tools.ConsoleColors.PURPLE + "Insere uma opção valida!" + Tools.ConsoleColors.RESET);
                 }
@@ -196,7 +194,7 @@ public class Portugal {
 
                         int provavilidade = rd.nextInt(101);
 
-                        if (provavilidade < 95){
+                        if (provavilidade < 95) {
                             System.out.println("\033[0;33mLuis pergunta: Quieres café?\n|1 - Sim|\t\t\t\t|2 - Não|" + Tools.ConsoleColors.RESET);
                             do {
                                 try {
@@ -204,7 +202,9 @@ public class Portugal {
                                     resposta = in.nextInt();
                                     if (resposta == 1) {
                                         System.out.println(Tools.ConsoleColors.BLUE + "O café estava a ferver e tu queimas-te ao beber, no entanto sentes-te mais forte e com mais energia!\n|Vida - 10|\t|Força + 10|\t|Defesa + 3|" + Tools.ConsoleColors.RESET);
-                                        player.AddStatus(-10,10,3);
+                                        player.AddStatus(-10, 10, 3);
+                                        System.out.println(Tools.ConsoleColors.BLUE + "(Prima enter para continuar)" + Tools.ConsoleColors.RESET);
+                                        in.nextLine();
                                         break;
                                     } else if (resposta == 2) {
                                         break;
@@ -215,7 +215,7 @@ public class Portugal {
                                     System.out.println(Tools.ConsoleColors.PURPLE + "Insere apenas números!" + Tools.ConsoleColors.RESET);
                                 }
                             } while (true);
-                        }else {
+                        } else {
                             System.out.println("\033[0;33mLuis pergunta: Queres guayoyo?\n|1 - Sim|\t\t\t\t|2 - Não|" + Tools.ConsoleColors.RESET);
                             do {
                                 try {
@@ -252,9 +252,9 @@ public class Portugal {
         Tools.Clear();
 
         //sala das raspadinhas
-        if (player.getLvl() == 2){
+        if (player.getLvl() == 2) {
             System.out.println(Tools.ConsoleColors.BLUE + "Finalmente chegas-te ao fim da auto estra, quando sais, ves uma pequena estação de serviço, onde decides parar para tomar o pequeno almoço." + Tools.ConsoleColors.RESET);
-        }else {
+        } else {
             System.out.println(Tools.ConsoleColors.BLUE + "Depois de muitos quilometros na nacional, ves uma pequena estação de serviço, onde decides parar para tomar o pequeno almoço." + Tools.ConsoleColors.RESET);
         }
 
@@ -278,23 +278,23 @@ public class Portugal {
                         Tools.Clear();
                         System.out.println(Tools.ConsoleColors.BLUE + "Desejas comprar outra raspadinha?\n|1 - Sim|\t\t\t\t|2 - Não|" + Tools.ConsoleColors.RESET);
 
-                        try{
+                        try {
                             in = new Scanner(System.in);
                             resposta = in.nextInt();
 
                             if (resposta == 1) {
                                 MiniGames.Raspadinhas(player);
-                            }else if (resposta == 2) {
+                            } else if (resposta == 2) {
                                 break;
-                            }else {
+                            } else {
                                 System.out.println(Tools.ConsoleColors.PURPLE + "Insere uma opção valida!" + Tools.ConsoleColors.RESET);
                             }
 
-                        }catch (InputMismatchException e){
+                        } catch (InputMismatchException e) {
                             System.out.println(Tools.ConsoleColors.PURPLE + "Insere apenas números!" + Tools.ConsoleColors.RESET);
                         }
 
-                    }while (true);
+                    } while (true);
 
                     break;
                 } else if (resposta == 2) {
@@ -306,8 +306,6 @@ public class Portugal {
                 System.out.println(Tools.ConsoleColors.PURPLE + "Insere apenas números!" + Tools.ConsoleColors.RESET);
             }
         } while (true);
-
-
 
 
         Tools.Clear();
@@ -332,30 +330,30 @@ public class Portugal {
         System.out.println(Tools.ConsoleColors.BLUE + "\n\nQueres usar alguma poção antes do combate?\n|1 - Sim|\t\t\t\t|2 - Não|" + Tools.ConsoleColors.RESET);
 
         do {
-            try{
+            try {
                 in = new Scanner(System.in);
                 int resposta = in.nextInt();
 
                 if (resposta == 1) {
                     player.MostrarUsarPocaoDoInventario();
                     break;
-                }else if (resposta == 2) {
+                } else if (resposta == 2) {
                     break;
-                }else {
+                } else {
                     System.out.println(Tools.ConsoleColors.PURPLE + "Insere uma opção valida!" + Tools.ConsoleColors.RESET);
                 }
 
-            }catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println(Tools.ConsoleColors.PURPLE + "Insere apenas números!" + Tools.ConsoleColors.RESET);
             }
 
-        }while (true);
+        } while (true);
 
         Tools.Clear();
 
         System.out.println(Tools.ConsoleColors.BLUE + "Vence a batalhar para conseguires continuar!\n\n" + Tools.ConsoleColors.RESET);
 
-        boolean sobreviveu = player.Atacar(CriarInimigo.CriarInimigo(3,"ChatGPT"));
+        boolean sobreviveu = player.Atacar(CriarInimigo.CriarInimigo(3, "ChatGPT"));
 
         if (!sobreviveu) {
             return 1;
@@ -406,9 +404,9 @@ public class Portugal {
                 in = new Scanner(System.in);
                 int resposta = in.nextInt();
                 if (resposta == 1) {
-                    int quantidade = rd.nextInt(10,351);
+                    int quantidade = rd.nextInt(10, 351);
 
-                    System.out.println(Tools.ConsoleColors.BLUE + "Quando estas a sair do carro, ve algumas bitcoins no chão e apanhas!" + Tools.ConsoleColors.RESET);
+                    System.out.println(Tools.ConsoleColors.BLUE + "Quando estas a sair do carro, ves algumas bitcoins no chão e apanhas!" + Tools.ConsoleColors.RESET);
                     System.out.println(Tools.ConsoleColors.GREEN + "Apanhas-te " + quantidade + " de bitcoins!\n\n(Enter para continuar)" + Tools.ConsoleColors.RESET);
                     player.setGold(player.getGold() + quantidade);
 
@@ -460,57 +458,57 @@ public class Portugal {
                     loja.Vender(player);
                     break;
                 } else if (resposta == 2) {
-                    int probavilidade = rd.nextInt(1,101);
+                    int probavilidade = rd.nextInt(1, 101);
 
-                        System.out.println(Tools.ConsoleColors.BLUE + """
-                                \nApesar de nao entrares na loja, desides parar para descançar um pouco.
-                                
-                                Passados alguns segundos de estacionares, um endivido estrado bate ao vidro.
-                                
-                                Tu abaixas o vidro e perguntas:
-                                \033[0;36m
-                                Bom-dia, posso o ajudar em alguma coisa?
-                                \033[0;33m
-                                Boas amigo, tenho aqui algo muito valioso, por acaso nao queres comprar? Faço-te um preço de amigo, apenas 100 bitcoins!
-                                """ + Tools.ConsoleColors.RESET);
+                    System.out.println(Tools.ConsoleColors.BLUE + """
+                            \nApesar de nao entrares na loja, desides parar para descançar um pouco.
+                            
+                            Passados alguns segundos de estacionares, um endivido estrado bate ao vidro.
+                            
+                            Tu abaixas o vidro e perguntas:
+                            \033[0;36m
+                            Bom-dia, posso o ajudar em alguma coisa?
+                            \033[0;33m
+                            Boas amigo, tenho aqui algo muito valioso, por acaso nao queres comprar? Faço-te um preço de amigo, apenas 100 bitcoins!
+                            """ + Tools.ConsoleColors.RESET);
 
-                        if (player.getGold() > 100) {
-                            System.out.println(Tools.ConsoleColors.BLUE + "Dejesas comprar o item valioso? Tens " + player.getGold()+ " bitcoins.\n|1 - Sim|\t\t\t\t|2 - Não|" + Tools.ConsoleColors.RESET);
-                            do {
-                                try {
-                                    in = new Scanner(System.in);
-                                    resposta = in.nextInt();
-                                    if (resposta == 1) {
-                                        if (probavilidade >=50) {
-                                            System.out.println(Tools.ConsoleColors.GREEN + "Compraste uma arma muito estranha, nem o nome dela consegues perceber!\n" + Tools.ConsoleColors.RESET);
-                                            player.setArma(CriarArmasPrincipais.error);
-                                            CriarArmasPrincipais.error.ExibirDetalhes();
-                                            System.out.println(Tools.ConsoleColors.BLUE + "\n\n(Enter para continuar)" + Tools.ConsoleColors.RESET);
-                                            in = new Scanner(System.in);
-                                            in.nextLine();
-                                        }else {
-                                            System.out.println(Tools.ConsoleColors.RED + "O vendedor enganou-te bem, quando deste por ela, pagaste 100 bitcoins por 5 porções de pipocas!\n" + Tools.ConsoleColors.RESET);
-                                            for (int i = 0; i < 5; i++) {
-                                                player.AddInventario(CriacaoArremesaveis.pipocas);
-                                            }
-                                            CriacaoArremesaveis.pipocas.ExibirDetalhes();
-                                            System.out.println(Tools.ConsoleColors.BLUE + "\n\n(Enter para continuar)" + Tools.ConsoleColors.RESET);
-                                            in = new Scanner(System.in);
-                                            in.nextLine();
-                                        }
-                                        break;
-                                    } else if (resposta == 2) {
-                                        break;
+                    if (player.getGold() > 100) {
+                        System.out.println(Tools.ConsoleColors.BLUE + "Dejesas comprar o item valioso? Tens " + player.getGold() + " bitcoins.\n|1 - Sim|\t\t\t\t|2 - Não|" + Tools.ConsoleColors.RESET);
+                        do {
+                            try {
+                                in = new Scanner(System.in);
+                                resposta = in.nextInt();
+                                if (resposta == 1) {
+                                    if (probavilidade >= 50) {
+                                        System.out.println(Tools.ConsoleColors.GREEN + "Compraste uma arma muito estranha, nem o nome dela consegues perceber!\n" + Tools.ConsoleColors.RESET);
+                                        player.setArma(CriarArmasPrincipais.error);
+                                        CriarArmasPrincipais.error.ExibirDetalhes();
+                                        System.out.println(Tools.ConsoleColors.BLUE + "\n\n(Enter para continuar)" + Tools.ConsoleColors.RESET);
+                                        in = new Scanner(System.in);
+                                        in.nextLine();
                                     } else {
-                                        System.out.println(Tools.ConsoleColors.PURPLE + "Insere uma opção valida!" + Tools.ConsoleColors.RESET);
+                                        System.out.println(Tools.ConsoleColors.RED + "O vendedor enganou-te bem, quando deste por ela, pagaste 100 bitcoins por 5 porções de pipocas!\n" + Tools.ConsoleColors.RESET);
+                                        for (int i = 0; i < 5; i++) {
+                                            player.AddInventario(CriacaoArremesaveis.pipocas);
+                                        }
+                                        CriacaoArremesaveis.pipocas.ExibirDetalhes();
+                                        System.out.println(Tools.ConsoleColors.BLUE + "\n\n(Enter para continuar)" + Tools.ConsoleColors.RESET);
+                                        in = new Scanner(System.in);
+                                        in.nextLine();
                                     }
-                                } catch (InputMismatchException e) {
-                                    System.out.println(Tools.ConsoleColors.PURPLE + "Insere apenas números!" + Tools.ConsoleColors.RESET);
+                                    break;
+                                } else if (resposta == 2) {
+                                    break;
+                                } else {
+                                    System.out.println(Tools.ConsoleColors.PURPLE + "Insere uma opção valida!" + Tools.ConsoleColors.RESET);
                                 }
-                            } while (true);
-                        }else {
-                            System.out.println(Tools.ConsoleColors.RED + "Infelizmente não tens dinheiro!\n\033[0;36mDesculpa, mas nao tenho dinheiro que chegue, fica para a proxima, prometo!" + Tools.ConsoleColors.RESET);
-                        }
+                            } catch (InputMismatchException e) {
+                                System.out.println(Tools.ConsoleColors.PURPLE + "Insere apenas números!" + Tools.ConsoleColors.RESET);
+                            }
+                        } while (true);
+                    } else {
+                        System.out.println(Tools.ConsoleColors.RED + "Infelizmente não tens dinheiro!\n\033[0;36mDesculpa, mas nao tenho dinheiro que chegue, fica para a proxima, prometo!" + Tools.ConsoleColors.RESET);
+                    }
 
                     break;
                 } else {
@@ -522,12 +520,11 @@ public class Portugal {
         } while (true);
 
 
-
         Tools.Clear();
 
-        if (player.getArma() == CriarArmasPrincipais.error){
+        if (player.getArma() == CriarArmasPrincipais.error) {
             System.out.println(Tools.ConsoleColors.BLUE + "Segues viagem com a tua nova arma fantastica, sentes-te invencivel com ela!" + Tools.ConsoleColors.RESET);
-        }else {
+        } else {
             System.out.println(Tools.ConsoleColors.BLUE + "Segues viajem com o pensamento de culpa, de te teres deixado enganar por aquela pessoa, mas já não ha nada a fazer, pelo menos tens algumas pipocas para comer." + Tools.ConsoleColors.RESET);
         }
 
@@ -535,10 +532,8 @@ public class Portugal {
         System.out.println("""
                 \033[0;36m
                 Bem, tamos quase a chegar ao Cesae, espero que a turma ainda nao se tenha ido embora!
-                \033[0;33m
-                Luis: ¡No te preocupes, todos deben estar muriéndose por recibir la nueva entrega de tartas de natillas!
-                \033[0;36m
-                Espero que sim! vamos so parar aqui na bomba para abastecer o carro e chegaremos la rapidinho!
+                
+                Vamos so parar aqui na bomba para abastecer o carro e chegaremos la rapidinho!
                 \033[0;34m
                 Enquanto abasteces o carro, ves um carro muito suspeito a chegar!
                 Queres usar alguma poção antes do carro parar?
@@ -582,13 +577,13 @@ public class Portugal {
                 if (resposta == 1) {
                     Tools.Clear();
                     System.out.println(Tools.ConsoleColors.BLUE + "Desides enfrentar Ash" + Tools.ConsoleColors.RESET);
-                    boolean subreviveu = player.Atacar(CriarInimigo.CriarInimigo(2,"Ash e Brabochu"));
+                    boolean subreviveu = player.Atacar(CriarInimigo.CriarInimigo(2, "Ash e Brabochu"));
 
                     if (!subreviveu) {
-                        return  1;
-                    }else {
+                        return 1;
+                    } else {
                         System.out.println(Tools.ConsoleColors.GREEN + "Quando derrotas Brabochu, ele dropa uma poção estranha e Ash foge de imediato!\n\nNão tens nada a perder, portanto tomas a poção!\n\nA poçao restaura toda a tua vida e ainda te da mais 50 de ataque e 20 de defesa!\n\nPara alem disso, ainda ficaram 1000 bitcoins no chão!");
-                        player.AddStatus(player.getVidaMaxima(),50,20);
+                        player.AddStatus(player.getVidaMaxima(), 50, 20);
                         player.setGold(player.getGold() + 1000);
                     }
 
@@ -611,12 +606,12 @@ public class Portugal {
                             No entanto, consegues fugir e tambem abasteces-te o carro e não pagaste (+ 500 bitcoins)
                             """);
 
-                    player.AddStatus(-300,0,0);
+                    player.AddStatus(-300, 0, 0);
                     player.setGold(player.getGold() + 500);
 
-                    if (player.getVidaAtual() <= 0){
-                        return  1;
-                    }else {
+                    if (player.getVidaAtual() <= 0) {
+                        return 1;
+                    } else {
                         player.MostrarStatus();
 
                         System.out.println(Tools.ConsoleColors.BLUE + "\n\nDesejas usar alguma poção?\n|1 - Sim|\t\t\t\t|2 - Não|" + Tools.ConsoleColors.RESET);
@@ -648,7 +643,6 @@ public class Portugal {
             }
         } while (true);
 
-        */
 
         Tools.Clear();
 
@@ -666,7 +660,7 @@ public class Portugal {
                 int resposta = in.nextInt();
                 if (resposta == 1) {
                     System.out.println(Tools.ConsoleColors.BLUE + "Comprimentas o segurança e o segurança comprimenta-te de volta.\n\nSegues para a sala com + 25 de dano e +20 de defesa!" + Tools.ConsoleColors.RESET);
-                    player.AddStatus(0,25,20);
+                    player.AddStatus(0, 25, 20);
                     Tools.Pause(4000);
                     break;
                 } else if (resposta == 2) {
@@ -759,9 +753,9 @@ public class Portugal {
                 Para conseguires comprir a tua jornada, e entregar estas delicias fresquinhas aos alunos, tens de derrutar todos os professores, e impedir que eles atribuam notas 0 a toda gente!
                 """);
 
-        boolean sobreviveu = player.Atacar(CriarInimigo.CriarInimigo(6,"Professores do Cesae"));
+        sobreviveu = player.Atacar(CriarInimigo.CriarInimigo(6, "Professores do Cesae"));
 
-        if (sobreviveu){
+        if (sobreviveu) {
             Tools.Clear();
             System.out.println("""
                     \033[1;32m                                                                                                   \s
@@ -787,7 +781,7 @@ public class Portugal {
                            █ ███                                                                            ████ █     \s
                            █                                                                                    ▒█     \s
                                                                                                                        \s
-                                                                                                                       
+                    
                     \033[0;34m                                                                                                   
                     Parabens! Conseguiste terminar o jogo e sair bencedor!
                     
@@ -797,15 +791,13 @@ public class Portugal {
                     
                     Deixa para la, tambem nao era nada de importante...
                     """);
-        }else {
+        } else {
             Tools.Clear();
             return 1;
         }
 
 
-
-
-        return 2;
+        return 0;
     }
 
     /**
