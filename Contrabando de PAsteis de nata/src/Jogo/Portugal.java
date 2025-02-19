@@ -61,7 +61,7 @@ public class Portugal {
                 Bem, tenho uma proposta para ti, se me conseguires levar esta remessa de 500 pasteis segura ate ao porto, podes ficar com 10%, mas aviso-te ja, que vai ser dificil, vais poder
                 apanhar a policia de Belem, bandidos, ou mesmo pessoas que ja nao comem um pastel a anos. Todos eles vao tentar te tirar os pasteis a força. Que dizes?
                 \033[0;34m
-                Aceitas a porposta? |1 - Sim|\t\t\t\t|2 - Não|
+                Aceitas a proposta? |1 - Sim|\t\t\t\t|2 - Não|
                 """);
 
         // se aceitar a historia continua, se recusar, acaba o jogo
